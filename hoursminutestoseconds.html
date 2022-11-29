@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+        function convertsToSeconds(hours,minutes){
+            return (hours * 3600) +  (minutes * 60)
+        }
+
+        function convertsToHours(minutes){
+            return minutes / 60
+        }
+
+        let seconds = convertsToSeconds(3,25);
+        console.log("Przeliczony czas to: ", seconds)
+        
+        let hours = convertsToHours(120);
+        console.log("Przeliczony czas na godziny to:", hours);
+    </script>
+</body>
+</html>
