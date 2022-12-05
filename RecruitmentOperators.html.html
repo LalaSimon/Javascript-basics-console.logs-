@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function recruitProgrammer(email, level, yearsExp, languages){
+
+            if (level != "mid"){
+                console.log(email, "nie jest dopasowany levelem, koniec rekrutacji");
+                return false;
+            }
+            let JsExp = false;
+            let TsExp = false; 
+
+            if(languages.indexOf("JavaScript") >= 0 ) JsExp = true;
+            if(languages.indexOf("TypeScript") >= 0 ) TsExp = true;
+
+            if (JsExp || TsExp){
+                if (yearsExp >= 1 && yearsExp < 6){
+                    console.log(email, "spełnił wszystkie wymagania")
+                    return true;
+                    }
+                }
+            return false
+        };
+
+        
+
+        recruitProgrammer("przyklad@gmail.com", "senior", 4, 
+                            ["JavaScript"]);
+        
+
+        recruitProgrammer("costam@gmail.com", "mid", 3, 
+                                ["Python" , "TypeScript"]);
+        
+        recruitProgrammer("hehe@gmail.com", "mid", 4,
+                            ["JavaScript", "TypeScript"]);
+
+        recruitProgrammer("ania@test.com", "mid", 4,
+                            ["JavaScript", "TypeScript"]);
+
+        recruitProgrammer("adam@example.com", "junior", 2, ["java"]);
+
+        recruitProgrammer("kasia@domena.com", "senior", 7,
+                            ["JavaScript", "TypeScript"]);
+
+    </script>
+</body>
+</html>

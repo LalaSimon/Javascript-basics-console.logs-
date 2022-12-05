@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let user1 = {email: "Ania@test.com", 
+                    membershipCost: 100, 
+                    numMemberShipYears: 3, 
+                    numberOfPost: 30 };
+
+        function extendMemberShip(user){
+            let memberShipDoscountFlag = 
+            (user.numMemberShipYears >= 2) ? true : false;
+            let numberOfPostFlag = 
+            (user.numberOfPost >= 30) ? true: false;
+
+            if(memberShipDoscountFlag && numberOfPostFlag){
+                user.membershipCost *= 0.6
+                console.log(user.email, "otrzymuje zniżkę i cena wynosi:", user.membershipCost);
+                } else{
+                    console.log(user.email, "nie otrzymuje zniżki, cena wynosi", user.membershipCost);
+                }
+        }
+        extendMemberShip(user1)
+        
+    </script>
+</body>
+</html>
