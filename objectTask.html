@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const company = {
+            name: "Zawisza",
+            addres: {
+                city: "Bydgoszcz",
+                street: "Gdańska"
+            },
+            employees: [],
+
+            addEmployee: function(email, job, salary){
+                if(typeof this.email == "string" || typeof this.job == "string"){
+                    console.log("zły email bądz tytuł")
+                    return false
+                };
+                let monkeyIndex = false;
+                for (let i = 0; i < email.length; i++) {
+                    if(email[i] === "@") {
+                    monkeyIndex = true
+                    break
+                    };
+                 };
+                 if(monkeyIndex == false){
+                    console.log("niepoprawny adres email, brakuje małpy")
+                    return false 
+                 };
+                 if(salary <= 4000){
+                    console.log("za mała pensja")
+                    return false
+                 };
+
+                const employee = {
+                    email: email,
+                    job: job,
+                    salary: salary,
+                    getInfo: function(){
+                        return this.email + " - " + this.job + " - " + this.salary
+                 }
+                };
+                this.employees.push(employee);
+                return true;
+            },
+            showEmployees: function(){
+                console.log("pracownicy z firmy " + this.name)
+
+                for (let i = 0; i < this.employees.length; i++){
+                    const e = this.employees[i];
+                    console.log(e.getInfo());
+                }
+               
+            },
+            changeSalaries: function(percantageChange){
+                for(let i = 0; i < this.employees.length; i++){
+                    const e = this.employees[i]
+                    e.salary += e.salary * (0.01 * percantageChange)
+                }
+            }
+            
+        }
+            company.addEmployee("Ania@test.com", "admin", 10000);
+            company.addEmployee("Marcin@test.com", "QA", 8000);
+            company.addEmployee("Krystian@test.com", "VR Unity Developer", 16000);
+            company.addEmployee("Robert@test.com", "Java Developer", 20000);
+            company.changeSalaries(15)
+            company.showEmployees();
+    </script>
+</body>
+</html>
